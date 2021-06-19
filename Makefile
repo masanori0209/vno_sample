@@ -1,6 +1,3 @@
-init:
-	docker-compose run front npm install
-	docker-compose up -d
 up:
 	docker-compose down
 	docker-compose up -d
@@ -13,7 +10,4 @@ logs:
 ps:
 	docker-compose ps
 deploy:
-	cp -r .git ./front
-	docker-compose exec front npm run build
-	docker-compose exec front npm run deploy
-	rm -rf ./front/.git
+	docker-compose exec app deno run --allow-read --allow-write --allow-net --unstable https://deno.land/x/vno/install/vno.ts build
