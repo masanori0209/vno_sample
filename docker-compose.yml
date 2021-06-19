@@ -6,7 +6,6 @@ services:
     build:
       context: ./app
       dockerfile: Dockerfile
-    command: 'sh /app/start-app.sh'
     volumes:
       - ./app:/app
     ports:
